@@ -18,13 +18,13 @@ class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Inline
 
         $this->_addClassNames('well');
 
-        $this->addElement('text', array(
+        $this->addElement('text', 'text', array(
             'placeholder'   => 'E-mail',
             'prepend'       => '@',
             'class'         => 'focused'
         ));
 
-        $this->addElement('password', array(
+        $this->addElement('password', 'password', array(
             'placeholder' => 'Password'
         ));
 
@@ -116,7 +116,7 @@ echo $searchForm;
 // Navigation bar search form
 $mavbarSearchForm = new Twitter_Bootstrap_Form_Search(array(
     'renderInNavBar' => true,
-    'pullItRight'    => true
+    'pullItRight'    => true,
     'inputName'      => 'q',
     'submitLabel'    => 'Search!'
 ));
@@ -365,4 +365,5 @@ So that's it. Now you can start creating forms and rendering them the way shown 
 
 * __adepretis__ <ad@25th-floor.com>
 * __rafalgalka__ <http://blog.modernweb.pl>
-* __lrobert__
+* __lrobert__ <http://www.leerobert.ca>
+* __marcelaraujo__ <admin@marcelaraujo.me>
