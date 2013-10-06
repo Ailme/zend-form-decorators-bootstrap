@@ -42,7 +42,7 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
 
     public function __construct ($spec, $options = null)
     {
-        if (isset($options['icon'])) {
+        if (isset($options['icon']) && !empty($options['icon'])) {
             // Disable automatic label escaping
             $options['escape'] = false;
             
@@ -54,8 +54,7 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
             }
             
             if (isset($options['iconPosition'])) {
-                if (strcmp($options['iconPosition'], self::ICON_POSITION_RIGHT) ===
-                         0) {
+                if (strcmp($options['iconPosition'], self::ICON_POSITION_RIGHT) === 0) {
                     $this->_iconPosition = self::ICON_POSITION_RIGHT;
                 }
                 unset($options['iconPosition']);
@@ -74,7 +73,7 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
      */
     private function _renderIcon ()
     {
-        return isset($this->_icon) ? '<i class="' . $this->_icon . '"></i>' : '';
+        return !empty($this->_icon) ? '<i class="' . $this->_icon . '"></i>' : '';
     }
 
     /**
@@ -85,9 +84,10 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
     public function getLabel ()
     {
         // Render the icon on either side
-        if (strcasecmp($this->_iconPosition, self::ICON_POSITION_LEFT) === 0)
+        if (strcasecmp($this->_iconPosition, self::ICON_POSITION_LEFT) === 0) {
             return $this->_renderIcon() . PHP_EOL . parent::getLabel();
-        else
-            return parent::getLabel() . PHP_EOL . $this->_renderIcon();
+        }
+        
+        return parent::getLabel() . PHP_EOL . $this->_renderIcon();
     }
 }
